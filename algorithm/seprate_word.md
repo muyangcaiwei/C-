@@ -1,6 +1,8 @@
 ## Separate word
 <https://www.geeksforgeeks.org/word-break-problem-dp-32/>
 
+<https://leetcode-cn.com/problems/word-break/description/>
+
 ```c++
 dp[i] : if str[0,i] could be separated
     dp[i] = true //if dp[j](j < i) is true and str[j to i] is a word
@@ -33,7 +35,7 @@ bool sepWord(string &str, vector<string> &set_)
 	{
 		for(int j = 0; j < i ;j ++)
 		{
-			string t = str.substr(j + 1, i - j );
+			string t = str.substr(j, i - j );
 			dp[i] = dp[j] && isSepWord(t, set_);
 			if(dp[i])
 				break;
