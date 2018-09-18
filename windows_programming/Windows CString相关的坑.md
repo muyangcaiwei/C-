@@ -10,5 +10,5 @@ const char * p =(const char *)lpsz;  //Unicode编码的话，得到的只�
 正确的姿势
 #include <atlbase.h>
 USES_CONVERSION;
-const char *p = T2A(lpsz);
+const char *p = T2A(lpsz.GetBuffer());
 ```
