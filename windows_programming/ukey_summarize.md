@@ -17,6 +17,17 @@ char *str;
 int a = 0;
 ....
 int ret = getMediaID(str, &a);
+```
 
+### 多字节转换为宽字节
+```C++
+CString str;
+//...str赋值操作
+int len = str.GetLength() * 2 + 2;//宽字节将2个字节是为一个单位，最后的2个字节是padding存放\0
+wchar_t *arr = new wchar_t[len];
+memset(arr, '\0', len);
+//CP_ACP:ANSI
+int ret = MultiByteToWideChar(CP_ACP, 0, str.GetBuffer(), str.GetLength() , arr, str.GetLength() );
+//最终的arr存放的就是宽字节，可以转换为BYTE*使用
 ```
 
